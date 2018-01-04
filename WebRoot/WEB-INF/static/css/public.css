@@ -1,0 +1,461 @@
+@charset "utf-8";
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+body,
+input，select {
+  width: 100%;
+  font-family: '微软雅黑';
+  font-size: 14px;
+  background: #f5f5f5;
+  min-width: 1240px;
+}
+a {
+  text-decoration: none;
+  outline: 0 none;
+}
+img {
+  border: 0 none;
+}
+ol,
+ul,
+li,
+table,
+tbody,
+hr,
+iframe {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.appM {
+  appearance: menulist;
+  -moz-appearance: menulist;
+  -webkit-appearance: menulist;
+}
+.textx {
+  text-decoration: underline;
+}
+.fontw {
+  font-weight: bold;
+}
+.fonts {
+  font-style: italic;
+}
+.fontn {
+  font-style: normal;
+  font-weight: normal;
+}
+.textl {
+  text-align: left;
+}
+.textr {
+  text-align: right;
+}
+.textc {
+  text-align: center;
+}
+.texth1 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.texth2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.block {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.cursorp {
+  cursor: pointer;
+}
+.overh {
+  overflow: hidden;
+}
+.overa {
+  overflow: auto;
+}
+.por {
+  position: relative;
+}
+.poa {
+  position: absolute;
+}
+.pof {
+  position: fixed;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.fn {
+  float: none;
+}
+.ma {
+  margin: 0 auto;
+}
+.fs12 {
+  font-size: 12px;
+}
+.fs14 {
+  font-size: 14px;
+}
+.fs16 {
+  font-size: 16px;
+}
+.fs18 {
+  font-size: 18px;
+}
+.fs20 {
+  font-size: 20px;
+}
+.fs22 {
+  font-size: 22px;
+}
+.fs24 {
+  font-size: 24px;
+}
+.fs26 {
+  font-size: 26px;
+}
+.fs28 {
+  font-size: 28px;
+}
+.fs30 {
+  font-size: 30px;
+}
+.fs32 {
+  font-size: 32px;
+}
+.fs34 {
+  font-size: 34px;
+}
+.fs36 {
+  font-size: 36px;
+}
+.fs38 {
+  font-size: 38px;
+}
+.fs40 {
+  font-size: 40px;
+}
+.fwryh {
+  font-family: "微软雅黑";
+}
+.colorfff {
+  color: #fff;
+}
+.color000 {
+  color: #000;
+}
+.color333 {
+  color: #333;
+}
+.color666 {
+  color: #666;
+}
+.color999 {
+  color: #999;
+}
+.colorff0 {
+  color: #ff0000;
+}
+.color1d8 {
+  color: #1d8bd8;
+}
+.color65d {
+  color: #65d255;
+}
+
+.colorf2d {
+    color: #f2dc1c;
+}
+
+.colorff7 {
+    color: #ff7200;
+}
+.backwhite {
+  background-color: #fff;
+}
+.backblue {
+  background-color: #1d8bd8;
+}
+.backgreen {
+  background-color: #65d255;
+}
+
+.backyellow {
+    background-color: #f2dc1c;
+}
+
+.backorange {
+    background: #ff7200;
+}
+.backred {
+  background-color: #ff0000;
+}
+.back999 {
+    background-color: #999;
+}
+
+.backf6f {
+    background-color: #f6f6f6;
+}
+.width100_ {
+  width: 100%;
+}
+.width97_ {
+  width: 97%;
+}
+
+.width75_ {
+    width: 75%;
+}
+
+.width70_ {
+    width: 70%;
+}
+
+.width50_ {
+    width: 50%;
+}
+
+.width30_ {
+    width: 30%;
+}
+
+.width25_ {
+    width: 25%;
+}
+
+.width3_ {
+    width: 3%;
+}
+.width1200 {
+  width: 1200px;
+}
+.mwidth1200 {
+  min-width: 1200px;
+}
+.height100_ {
+  height: 100%;
+}
+.ml0 {
+  margin-left: 0 !important;
+}
+.mr0 {
+  margin-right: 0 !important;
+}
+
+.padding15 {
+    padding: 15px;
+}
+.word {
+  word-wrap: break-word;
+}
+.xz {
+  transition: all 0.1s ease-in-out;
+  display: block;
+}
+.xz_90 {
+  transform: rotate(90deg);
+}
+.redio {
+  width: 10px !important;
+  height: 10px !important;
+  display: none !important;
+}
+.labelRadio {
+  cursor: pointer;
+  display: block;
+  float: left;
+  overflow: hidden;
+  padding-left: 21px;
+  height: 28px;
+  background: url(../img/ico/redio.png) no-repeat left center;
+  margin-right: 10px;
+}
+.labelRadio.labelRadioHover {
+  background: url(../img/ico/redio1.png) no-repeat left center;
+}
+
+.labelRadioOk {
+    display: block;
+    float: left;
+    overflow: hidden;
+    padding-left: 21px;
+    height: 28px;
+    background: url(../img/ico/redio1.png) no-repeat left center;
+}
+
+.labelRadioNo {
+    display: block;
+    float: left;
+    overflow: hidden;
+    padding-left: 21px;
+    height: 28px;
+    background: url(../img/ico/redio.png) no-repeat left center;
+}
+.check {
+  width: 10px !important;
+  height: 10px !important;
+  display: none !important;
+}
+.labelCheck {
+  cursor: pointer;
+  display: block;
+  float: left;
+  overflow: hidden;
+  height: 28px;
+  padding-left: 21px;
+  background: url(../img/ico/check.png) no-repeat left center;
+  margin-right: 10px;
+}
+.labelCheck.labelCheckHover {
+  background: url(../img/ico/check1.png) no-repeat left center;
+}
+
+.checkAll,
+.labelCheckQy {
+  cursor: pointer;
+  display: block;
+  float: left;
+  overflow: hidden;
+  height: 28px;
+  padding-left: 21px;
+  background: url(../img/ico/check.png) no-repeat left center;
+  margin-right: 10px;
+}
+
+.checkAll.labelCheckHover,
+.labelCheckQy.labelCheckHover {
+  background: url(../img/ico/check1.png) no-repeat left center;
+}
+
+.checkAllno {
+    float: none;
+}
+.borderB {
+  width: 100%;
+  border: none;
+  border-bottom: 1px dashed #d4d4d4;
+  height: 1px;
+  background: #fff;
+  margin-bottom: 16px;
+}
+.sele {
+  position: relative;
+  display: block;
+  float: left;
+  font-style: normal;
+  font-weight: normal;
+  cursor: pointer;
+  background: url(../img/ico/sele.png) no-repeat 96% center #ffffff;
+    width: 146px !important;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 6px;
+  color: #242a3f;
+  border: 1px solid #d4d4d4;
+}
+.sele .seleOk {
+  font-style: normal;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  *white-space: nowrap;
+  padding-right: 12px;
+}
+.sele .seleList {
+  position: absolute;
+  background-color: #fff;
+  display: none;
+  overflow: auto;
+  z-index: 2;
+  width: 146px;
+  height: 141px;
+  border: 1px solid #d4d4d4;
+  border-top: none;
+  left: -1px;
+  top: 27px;
+  padding: 0 6px;
+}
+.sele .seleList label {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  cursor: pointer;
+  width: 100%;
+}
+
+.gridly,
+.gridly > :not(.dragging) {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.gridly .dragging {
+    z-index: 800;
+}
+
+.gridly .brick.small {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.gridly .brick.dragging {
+    opacity: 0.8;
+}
+
+.gridly .brick img {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.gridly .brick .TzDele {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    z-index: 1;
+}
+
+.gridly .brick .TzDa {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    top: 0;
+    right: 30px;
+    width: 26px;
+    height: 26px;
+    z-index: 1;
+}

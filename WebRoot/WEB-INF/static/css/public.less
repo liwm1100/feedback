@@ -1,0 +1,318 @@
+@charset "utf-8";
+*, *:before, *:after {margin: 0;padding: 0;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+html,body {width:100%; height: 100%; color:#333;}
+body,input，select{width: 100%; font-family:'微软雅黑';font-size:14px; background: #f5f5f5; min-width: 1240px;}
+a{text-decoration:none;outline: 0 none;}
+img{border:0 none;}
+ol,ul,li,table,tbody,hr,iframe{ margin: 0; padding: 0; list-style:none;}
+
+//input提示颜色
+//input:-ms-input-placeholder,textarea:-ms-input-placeholder {}
+//input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {}
+//select::-ms-expand { display: none; }
+
+//下拉三角
+.appM{appearance:menulist;-moz-appearance:menulist;-webkit-appearance:menulist;}
+
+//文字
+.textx{text-decoration:underline;}//下班线
+.fontw{font-weight: bold;}//加粗
+.fonts{font-style:italic;}//斜体
+.fontn{font-style:normal;font-weight:normal;}//恢复正常
+.textl{text-align:left;}//左对齐
+.textr{text-align:right;}//右对齐
+.textc{text-align:center;}//居中对其
+.texth1{text-overflow:ellipsis; white-space: nowrap;}//超出一行省略号
+.texth2{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp:2;overflow: hidden;}//多行省略号
+
+//显示、隐藏
+.block{display:block;}//显示
+.hide{display:none;}//隐藏
+
+//鼠标指针
+.cursorp{cursor:pointer;}//点击指针
+
+//超出
+.overh{overflow:hidden;}//超出隐藏
+.overa{overflow:auto;}//超出滚动
+
+//定位
+.por{position:relative;}//相对定位
+.poa{position:absolute;}//绝对定位
+.pof{position:fixed;}//浮动定位
+
+
+//对齐方式
+.fl{float:left;}//左对齐
+.fr{float:right;}//右对齐
+.fn{float:none;}//取消对齐
+.ma{margin:0 auto;}//居中
+
+
+//字号
+.fs12{ font-size:12px;}
+.fs14{ font-size:14px;}
+.fs16{ font-size:16px;}
+.fs18{ font-size:18px;}
+.fs20{ font-size:20px;}
+.fs22{ font-size:22px;}
+.fs24{ font-size:24px;}
+.fs26{ font-size:26px;}
+.fs28{ font-size:28px;}
+.fs30{ font-size:30px;}
+.fs32{ font-size:32px;}
+.fs34{ font-size:34px;}
+.fs36{ font-size:36px;}
+.fs38{ font-size:38px;}
+.fs40{ font-size:40px;}
+
+//字体
+.fwryh{font-family:"微软雅黑";}
+
+//字色
+.colorfff{color: #fff;}
+.color000{color: #000;}
+.color333{color: #333;}
+.color666{color: #666;}
+.color999{color: #999;}
+.colorff0{color: #ff0000;}
+
+.color1d8 {
+  color: #1d8bd8;
+}
+
+//蓝色
+.color65d {
+  color: #65d255;
+}
+
+//绿色
+.colorf2d {
+  color: #f2dc1c;
+}
+
+//黄色
+.colorff7 {
+  color: #ff7200;
+}
+
+//橙色
+
+
+//背景色
+.backwhite{background-color:#fff;}//白色
+.backblue{background-color:#1d8bd8;}//蓝色
+.backgreen{background-color: #65d255;}//绿色
+.backyellow {
+  background-color: #f2dc1c;
+}
+
+//黄色
+.backorange {
+  background: #ff7200;
+}
+
+//橙色
+.backred{background-color: #ff0000;}//红色
+.back999 {
+  background-color: #999;
+}
+
+.backf6f {
+  background-color: #f6f6f6;
+}
+
+//宽度
+.width100_{width: 100%;}
+.width97_{width: 97%;}
+
+.width75_ {
+  width: 75%;
+}
+
+.width70_ {
+  width: 70%;
+}
+
+.width50_ {
+  width: 50%;
+}
+
+.width30_ {
+  width: 30%;
+}
+
+.width25_ {
+  width: 25%;
+}
+
+.width3_ {
+  width: 3%;
+}
+.width1200{width: 1200px;}
+.mwidth1200{min-width: 1200px;}
+
+//高度
+.height100_{height: 100%;}
+
+//边距零
+.ml0{margin-left:0 !important;}
+.mr0{margin-right:0 !important;}
+
+//内边距
+.padding15 {
+  padding: 15px;
+}
+
+//换行
+.word{word-wrap:break-word;}
+
+//旋转
+.xz{transition:all .1s ease-in-out; display:block;}
+.xz_90{transform:rotate(90deg)}
+
+//单选
+.redio{width: 10px !important; height: 10px !important; display: none !important;}
+
+.labelRadio {
+  .cursorp;
+  .block;
+  .fl;
+  .overh;
+  padding-left: 21px;
+  height: 28px;
+  background: url(../img/ico/redio.png) no-repeat left center;
+  margin-right: 10px;
+  &.labelRadioHover {
+    background: url(../img/ico/redio1.png) no-repeat left center;
+  }
+}
+
+.labelRadioOk {
+  .block;
+  .fl;
+  .overh;
+  padding-left: 21px;
+  height: 28px;
+  background: url(../img/ico/redio1.png) no-repeat left center;
+}
+
+.labelRadioNo {
+  .block;
+  .fl;
+  .overh;
+  padding-left: 21px;
+  height: 28px;
+  background: url(../img/ico/redio.png) no-repeat left center;
+}
+
+//多选
+.check{width: 10px !important; height: 10px !important; display: none !important;}
+.labelCheck{ .cursorp; .block; .fl; .overh; height: 28px; padding-left:21px; background: url(../img/ico/check.png) no-repeat left center; margin-right: 10px; &.labelCheckHover{ background: url(../img/ico/check1.png) no-repeat left center;}}
+
+.checkAll, .labelCheckQy {
+  .labelCheck
+}
+
+.checkAllno {
+  .fn;
+}
+
+//分割线
+.borderB{.width100_;border:none;border-bottom: 1px dashed #d4d4d4;height: 1px;background: #fff;margin-bottom: 16px;}
+
+//下啦多选
+.sele{
+    .por;
+    .block;
+    .fl;
+    .fontn;
+    .cursorp;
+    background: url(../img/ico/sele.png) no-repeat 96% center #fff;
+  width: 146px !important;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 6px;
+    color: #242a3f;
+    border:1px solid #d4d4d4;
+    .seleOk{
+        .fontn;
+        .block;
+        .width100_;
+        .overh;
+        height: 26px;
+        text-overflow:ellipsis;
+      white-space: nowrap;
+        *white-space:nowrap;   
+        padding-right: 12px;
+    }
+    .seleList{
+        .poa;
+        .backwhite;
+        .hide;
+        overflow: auto;
+        z-index: 2;
+        width:146px;
+        height: 141px;
+        border:1px solid #d4d4d4;
+        border-top:none;
+        left:-1px;
+        top:27px;
+        padding: 0 6px;
+        label{
+            .block;
+            .fontn;
+            .cursorp;
+            .width100_;
+        }
+    }
+}
+
+//拖拽
+.gridly, .gridly > :not(.dragging) {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.gridly .dragging {
+  z-index: 800;
+}
+
+.gridly .brick.small {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.gridly .brick.dragging {
+  opacity: 0.8;
+}
+
+.gridly .brick img {
+  .block;
+  .fl;
+  .width100_;
+  .height100_;
+}
+
+.gridly .brick .TzDele {
+  .poa;
+  .block;
+  .cursorp;
+  top: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  z-index: 1;
+}
+
+.gridly .brick .TzDa {
+  .poa;
+  .block;
+  .cursorp;
+  top: 0;
+  right: 30px;
+  width: 26px;
+  height: 26px;
+  z-index: 1;
+}

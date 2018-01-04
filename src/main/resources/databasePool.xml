@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					  http://www.springframework.org/schema/beans/spring-beans.xsd
+       					  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd   
+        				  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="serviceMethods" expression="execution(* com.my.feedback.service.impl..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="set*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="edit*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="remove*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="merge*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="batchUpdate*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="batchDelete*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="batchRemove*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 使用全局监控 -->
+        <property name="useGlobalDataSourceStat" value="true"/>
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat" />
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${master.jdbc.url}" />
+        <property name="username" value="${master.jdbc.user}" />
+        <property name="password" value="${master.jdbc.password}" />
+
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${jdbc.initialSize}" />
+        <property name="minIdle" value="${jdbc.minIdle}" />
+        <property name="maxActive" value="${jdbc.maxActive}" />
+
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${jdbc.maxWait}" />
+
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}" />
+
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}" />
+
+        <property name="validationQuery" value="${jdbc.validationQuery}" />
+        <property name="testWhileIdle" value="${jdbc.testWhileIdle}" />
+        <property name="testOnBorrow" value="${jdbc.testOnBorrow}" />
+        <property name="testOnReturn" value="${jdbc.testOnReturn}" />
+
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.maxPoolPreparedStatementPerConnectionSize}" />
+    </bean>
+    
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource" />
+        <property name="typeAliasesPackage" value="com.my.feedback.model" />
+    </bean>
+
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.my.feedback.dao" />
+    </bean>
+</beans>

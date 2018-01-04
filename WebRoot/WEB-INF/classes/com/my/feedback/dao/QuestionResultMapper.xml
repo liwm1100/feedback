@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.feedback.dao.QuestionResultMapper">
+    <resultMap id="BaseResultMap" type="com.my.feedback.model.QuestionResult">
+        <!--
+        @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="question_no" jdbcType="VARCHAR" property="questionNo" />
+        <result column="question_where" jdbcType="VARCHAR" property="questionWhere" />
+        <result column="repair_result" jdbcType="VARCHAR" property="repairResult" />
+        <result column="repair_change" jdbcType="VARCHAR" property="repairChange" />
+        <result column="repair_pic_url" jdbcType="VARCHAR" property="repairPicUrl" />
+        <result column="repair_date" jdbcType="TIMESTAMP" property="repairDate" />
+        <result column="repair_price" jdbcType="DECIMAL" property="repairPrice" />
+        <result column="book_date" jdbcType="TIMESTAMP" property="bookDate" />
+        <result column="book_user" jdbcType="VARCHAR" property="bookUser" />
+        <result column="admin_state" jdbcType="VARCHAR" property="adminState" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+        @mbggenerated
+        -->
+        id, question_no, question_where, repair_result, repair_change, repair_pic_url, repair_date, 
+        repair_price, book_date, book_user, admin_state
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+        @mbggenerated
+        -->
+        select 
+        <include refid="Base_Column_List" />
+        from question_result
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--
+        @mbggenerated
+        -->
+        delete from question_result
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.my.feedback.model.QuestionResult">
+        <!--
+        @mbggenerated
+        -->
+        insert into question_result (id, question_no, question_where, 
+            repair_result, repair_change, repair_pic_url, 
+            repair_date, repair_price, book_date, 
+            book_user, admin_state)
+        values (#{id,jdbcType=INTEGER}, #{questionNo,jdbcType=VARCHAR}, #{questionWhere,jdbcType=VARCHAR}, 
+            #{repairResult,jdbcType=VARCHAR}, #{repairChange,jdbcType=VARCHAR}, #{repairPicUrl,jdbcType=VARCHAR}, 
+            #{repairDate,jdbcType=TIMESTAMP}, #{repairPrice,jdbcType=DECIMAL}, #{bookDate,jdbcType=TIMESTAMP}, 
+            #{bookUser,jdbcType=VARCHAR}, #{adminState,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.my.feedback.model.QuestionResult">
+        <!--
+        @mbggenerated
+        -->
+        insert into question_result
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="questionNo != null">
+                question_no,
+            </if>
+            <if test="questionWhere != null">
+                question_where,
+            </if>
+            <if test="repairResult != null">
+                repair_result,
+            </if>
+            <if test="repairChange != null">
+                repair_change,
+            </if>
+            <if test="repairPicUrl != null">
+                repair_pic_url,
+            </if>
+            <if test="repairDate != null">
+                repair_date,
+            </if>
+            <if test="repairPrice != null">
+                repair_price,
+            </if>
+            <if test="bookDate != null">
+                book_date,
+            </if>
+            <if test="bookUser != null">
+                book_user,
+            </if>
+            <if test="adminState != null">
+                admin_state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="questionNo != null">
+                #{questionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="questionWhere != null">
+                #{questionWhere,jdbcType=VARCHAR},
+            </if>
+            <if test="repairResult != null">
+                #{repairResult,jdbcType=VARCHAR},
+            </if>
+            <if test="repairChange != null">
+                #{repairChange,jdbcType=VARCHAR},
+            </if>
+            <if test="repairPicUrl != null">
+                #{repairPicUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="repairDate != null">
+                #{repairDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="repairPrice != null">
+                #{repairPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="bookDate != null">
+                #{bookDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="bookUser != null">
+                #{bookUser,jdbcType=VARCHAR},
+            </if>
+            <if test="adminState != null">
+                #{adminState,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.my.feedback.model.QuestionResult">
+        <!--
+        @mbggenerated
+        -->
+        update question_result
+        <set>
+            <if test="questionNo != null">
+                question_no = #{questionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="questionWhere != null">
+                question_where = #{questionWhere,jdbcType=VARCHAR},
+            </if>
+            <if test="repairResult != null">
+                repair_result = #{repairResult,jdbcType=VARCHAR},
+            </if>
+            <if test="repairChange != null">
+                repair_change = #{repairChange,jdbcType=VARCHAR},
+            </if>
+            <if test="repairPicUrl != null">
+                repair_pic_url = #{repairPicUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="repairDate != null">
+                repair_date = #{repairDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="repairPrice != null">
+                repair_price = #{repairPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="bookDate != null">
+                book_date = #{bookDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="bookUser != null">
+                book_user = #{bookUser,jdbcType=VARCHAR},
+            </if>
+            <if test="adminState != null">
+                admin_state = #{adminState,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.my.feedback.model.QuestionResult">
+        <!--
+        @mbggenerated
+        -->
+        update question_result
+        set question_no = #{questionNo,jdbcType=VARCHAR},
+            question_where = #{questionWhere,jdbcType=VARCHAR},
+            repair_result = #{repairResult,jdbcType=VARCHAR},
+            repair_change = #{repairChange,jdbcType=VARCHAR},
+            repair_pic_url = #{repairPicUrl,jdbcType=VARCHAR},
+            repair_date = #{repairDate,jdbcType=TIMESTAMP},
+            repair_price = #{repairPrice,jdbcType=DECIMAL},
+            book_date = #{bookDate,jdbcType=TIMESTAMP},
+            book_user = #{bookUser,jdbcType=VARCHAR},
+            admin_state = #{adminState,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="getQuestionResultByNo" resultMap="BaseResultMap">
+        select * from question_result where question_no=#{questionNo}
+    </select>
+</mapper>

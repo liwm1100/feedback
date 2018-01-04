@@ -1,0 +1,49 @@
+.paging2 {
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding-top: 10px;
+}
+.paging2 p {
+    /* float: left; */
+    color: #666;
+    font-size: 12px;
+    padding-right: 20px;
+    max-width: 400px;
+    height: 28px;
+    line-height: 28px;
+}
+.pagingUl2 {
+    float: right;
+    text-align: center;
+}
+.pagingUl2 li {
+    float: left;
+    overflow: hidden;
+    font-size: 12px;
+    width: 50px;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+    line-height: 26px;
+    margin: 0 5px;
+}
+.pagingUl2 li.pagingLi1 {
+    border: none;
+    line-height: 20px;
+}
+.pagingUl2 li.pagingLi2 {
+    width: 40px;
+}
+.pagingUl2 li a {
+    display: block;
+    height: 100%;
+    color: #606060;
+}
+.pagingUl2 li a:hover {
+    background: #efefef;
+}
+.pagingUl2 li a.pagingOver {
+    background-color: #1d8bd8;
+    color: #fff;
+}

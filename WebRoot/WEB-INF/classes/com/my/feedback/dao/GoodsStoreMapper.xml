@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.feedback.dao.GoodsStoreMapper">
+    <resultMap id="BaseResultMap" type="com.my.feedback.model.GoodsStore">
+        <!--
+        @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="bar_no" jdbcType="VARCHAR" property="barNo" />
+        <result column="goods_no" jdbcType="VARCHAR" property="goodsNo" />
+        <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+        <result column="goods_unit" jdbcType="VARCHAR" property="goodsUnit" />
+        <result column="goods_price" jdbcType="DECIMAL" property="goodsPrice" />
+        <result column="num" jdbcType="INTEGER" property="num" />
+        <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+        <result column="goods_note" jdbcType="VARCHAR" property="goodsNote" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="create_name" jdbcType="VARCHAR" property="createName" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="company_in" jdbcType="VARCHAR" property="companyIn" />
+        <result column="company_in_name" jdbcType="VARCHAR" property="companyInName" />
+        <result column="company_out" jdbcType="VARCHAR" property="companyOut" />
+        <result column="company_out_name" jdbcType="VARCHAR" property="companyOutName" />
+        <result column="state" jdbcType="INTEGER" property="state" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+        @mbggenerated
+        -->
+        id, bar_no, goods_no, goods_name, goods_unit, goods_price, num, total_price, goods_note, 
+        user_name, create_time, create_name, remark, company_in, company_in_name, company_out, 
+        company_out_name, state
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+        @mbggenerated
+        -->
+        select 
+        <include refid="Base_Column_List" />
+        from goods_store
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--
+        @mbggenerated
+        -->
+        delete from goods_store
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.my.feedback.model.GoodsStore">
+        <!--
+        @mbggenerated
+        -->
+        insert into goods_store (id, bar_no, goods_no, 
+            goods_name, goods_unit, goods_price, 
+            num, total_price, goods_note, 
+            user_name, create_time, create_name, 
+            remark, company_in, company_in_name, 
+            company_out, company_out_name, state
+            )
+        values (#{id,jdbcType=INTEGER}, #{barNo,jdbcType=VARCHAR}, #{goodsNo,jdbcType=VARCHAR}, 
+            #{goodsName,jdbcType=VARCHAR}, #{goodsUnit,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=DECIMAL}, 
+            #{num,jdbcType=INTEGER}, #{totalPrice,jdbcType=DECIMAL}, #{goodsNote,jdbcType=VARCHAR}, 
+            #{userName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createName,jdbcType=VARCHAR}, 
+            #{remark,jdbcType=VARCHAR}, #{companyIn,jdbcType=VARCHAR}, #{companyInName,jdbcType=VARCHAR}, 
+            #{companyOut,jdbcType=VARCHAR}, #{companyOutName,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}
+            )
+    </insert>
+    <insert id="insertSelective" parameterType="com.my.feedback.model.GoodsStore">
+        <!--
+        @mbggenerated
+        -->
+        insert into goods_store
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="barNo != null">
+                bar_no,
+            </if>
+            <if test="goodsNo != null">
+                goods_no,
+            </if>
+            <if test="goodsName != null">
+                goods_name,
+            </if>
+            <if test="goodsUnit != null">
+                goods_unit,
+            </if>
+            <if test="goodsPrice != null">
+                goods_price,
+            </if>
+            <if test="num != null">
+                num,
+            </if>
+            <if test="totalPrice != null">
+                total_price,
+            </if>
+            <if test="goodsNote != null">
+                goods_note,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createName != null">
+                create_name,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="companyIn != null">
+                company_in,
+            </if>
+            <if test="companyInName != null">
+                company_in_name,
+            </if>
+            <if test="companyOut != null">
+                company_out,
+            </if>
+            <if test="companyOutName != null">
+                company_out_name,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="barNo != null">
+                #{barNo,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsNo != null">
+                #{goodsNo,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsName != null">
+                #{goodsName,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsUnit != null">
+                #{goodsUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsPrice != null">
+                #{goodsPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="num != null">
+                #{num,jdbcType=INTEGER},
+            </if>
+            <if test="totalPrice != null">
+                #{totalPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="goodsNote != null">
+                #{goodsNote,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createName != null">
+                #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="companyIn != null">
+                #{companyIn,jdbcType=VARCHAR},
+            </if>
+            <if test="companyInName != null">
+                #{companyInName,jdbcType=VARCHAR},
+            </if>
+            <if test="companyOut != null">
+                #{companyOut,jdbcType=VARCHAR},
+            </if>
+            <if test="companyOutName != null">
+                #{companyOutName,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.my.feedback.model.GoodsStore">
+        <!--
+        @mbggenerated
+        -->
+        update goods_store
+        <set>
+            <if test="barNo != null">
+                bar_no = #{barNo,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsNo != null">
+                goods_no = #{goodsNo,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsName != null">
+                goods_name = #{goodsName,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsUnit != null">
+                goods_unit = #{goodsUnit,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsPrice != null">
+                goods_price = #{goodsPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="num != null">
+                num = #{num,jdbcType=INTEGER},
+            </if>
+            <if test="totalPrice != null">
+                total_price = #{totalPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="goodsNote != null">
+                goods_note = #{goodsNote,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createName != null">
+                create_name = #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="companyIn != null">
+                company_in = #{companyIn,jdbcType=VARCHAR},
+            </if>
+            <if test="companyInName != null">
+                company_in_name = #{companyInName,jdbcType=VARCHAR},
+            </if>
+            <if test="companyOut != null">
+                company_out = #{companyOut,jdbcType=VARCHAR},
+            </if>
+            <if test="companyOutName != null">
+                company_out_name = #{companyOutName,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.my.feedback.model.GoodsStore">
+        <!--
+        @mbggenerated
+        -->
+        update goods_store
+        set bar_no = #{barNo,jdbcType=VARCHAR},
+            goods_no = #{goodsNo,jdbcType=VARCHAR},
+            goods_name = #{goodsName,jdbcType=VARCHAR},
+            goods_unit = #{goodsUnit,jdbcType=VARCHAR},
+            goods_price = #{goodsPrice,jdbcType=DECIMAL},
+            num = #{num,jdbcType=INTEGER},
+            total_price = #{totalPrice,jdbcType=DECIMAL},
+            goods_note = #{goodsNote,jdbcType=VARCHAR},
+            user_name = #{userName,jdbcType=VARCHAR},
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+            create_name = #{createName,jdbcType=VARCHAR},
+            remark = #{remark,jdbcType=VARCHAR},
+            company_in = #{companyIn,jdbcType=VARCHAR},
+            company_in_name = #{companyInName,jdbcType=VARCHAR},
+            company_out = #{companyOut,jdbcType=VARCHAR},
+            company_out_name = #{companyOutName,jdbcType=VARCHAR},
+            state = #{state,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <resultMap id="GoodsStoreVoMap" type="com.my.feedback.model.vo.GoodsStoreVo" extends="BaseResultMap">
+
+    </resultMap>
+    <select id="listByPage" parameterType="com.my.feedback.model.vo.GoodsStoreVo" resultMap="GoodsStoreVoMap">
+      select * from goods_store
+      <where>
+          <if test="goodsName!=null">
+              goods_name LIKE CONCAT(CONCAT('%', #{goodsName}), '%')
+          </if>
+          <if test="barNo != null">
+              and bar_no=#{barNo}
+          </if>
+          <if test="companyIn != null">
+              and company_in=#{companyIn}
+          </if>
+          <if test="companyOut != null">
+              and company_out=#{companyOut}
+          </if>
+          <if test="state != null">
+              and state=#{state}
+          </if>
+          <if test="remark!=null">
+              and goods_note LIKE CONCAT(CONCAT('%', #{remark}), '%')
+          </if>
+      </where>
+        order by create_time desc
+    </select>
+    <select id="getGoodsStoreByVo" parameterType="com.my.feedback.model.vo.GoodsStoreVo" resultMap="GoodsStoreVoMap">
+        select * from goods_store
+        <where>
+            state=10
+            <if test="barNoQuery!=null">
+                and bar_no = #{barNoQuery}
+            </if>
+        </where>
+    </select>
+    <select id="hasStoreGoods" resultMap="BaseResultMap">
+        select * from goods_store where goods_no=#{goodsNo} and state=#{state}
+    </select>
+    <select id="leftStoreGoodsNum" resultType="integer">
+        select sum(num) from goods_store where goods_no=#{goodsNo}
+    </select>
+</mapper>

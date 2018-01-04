@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.feedback.dao.SchoolMapper">
+    <resultMap id="BaseResultMap" type="com.my.feedback.model.School">
+        <!--
+        @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="school_no" jdbcType="VARCHAR" property="schoolNo" />
+        <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+        @mbggenerated
+        -->
+        id, school_no, school_name
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+        @mbggenerated
+        -->
+        select 
+        <include refid="Base_Column_List" />
+        from school
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--
+        @mbggenerated
+        -->
+        delete from school
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.my.feedback.model.School">
+        <!--
+        @mbggenerated
+        -->
+        insert into school (id, school_no, school_name
+            )
+        values (#{id,jdbcType=INTEGER}, #{schoolNo,jdbcType=VARCHAR}, #{schoolName,jdbcType=VARCHAR}
+            )
+    </insert>
+    <insert id="insertSelective" parameterType="com.my.feedback.model.School">
+        <!--
+        @mbggenerated
+        -->
+        insert into school
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="schoolNo != null">
+                school_no,
+            </if>
+            <if test="schoolName != null">
+                school_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="schoolNo != null">
+                #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolName != null">
+                #{schoolName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.my.feedback.model.School">
+        <!--
+        @mbggenerated
+        -->
+        update school
+        <set>
+            <if test="schoolNo != null">
+                school_no = #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolName != null">
+                school_name = #{schoolName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.my.feedback.model.School">
+        <!--
+        @mbggenerated
+        -->
+        update school
+        set school_no = #{schoolNo,jdbcType=VARCHAR},
+            school_name = #{schoolName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="getSchoolByNo" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from school
+        where school_no = #{no}
+    </select>
+    <resultMap id="SchoolVo" type="com.my.feedback.model.vo.SchoolVo" extends="BaseResultMap">
+
+    </resultMap>
+    <select id="listByVo" parameterType="com.my.feedback.model.vo.SchoolVo" resultMap="SchoolVo">
+      select * from school
+        <where>
+            <if test="schoolName!=null">
+                school_name LIKE CONCAT(CONCAT('%', #{schoolName}), '%')
+            </if>
+        </where>
+    </select>
+</mapper>

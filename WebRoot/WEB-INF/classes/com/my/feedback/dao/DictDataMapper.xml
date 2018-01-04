@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.feedback.dao.DictDataMapper">
+    <resultMap id="BaseResultMap" type="com.my.feedback.model.DictData">
+        <!--
+        @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="type_id" jdbcType="INTEGER" property="typeId" />
+        <result column="code" jdbcType="INTEGER" property="code" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+        @mbggenerated
+        -->
+        id, type_id, code, name
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+        @mbggenerated
+        -->
+        select 
+        <include refid="Base_Column_List" />
+        from dict_data
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--
+        @mbggenerated
+        -->
+        delete from dict_data
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.my.feedback.model.DictData">
+        <!--
+        @mbggenerated
+        -->
+        insert into dict_data (id, type_id, code, 
+            name)
+        values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{code,jdbcType=INTEGER}, 
+            #{name,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.my.feedback.model.DictData">
+        <!--
+        @mbggenerated
+        -->
+        insert into dict_data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="typeId != null">
+                type_id,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="typeId != null">
+                #{typeId,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.my.feedback.model.DictData">
+        <!--
+        @mbggenerated
+        -->
+        update dict_data
+        <set>
+            <if test="typeId != null">
+                type_id = #{typeId,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.my.feedback.model.DictData">
+        <!--
+        @mbggenerated
+        -->
+        update dict_data
+        set type_id = #{typeId,jdbcType=INTEGER},
+            code = #{code,jdbcType=INTEGER},
+            name = #{name,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="getDictListByType" resultMap="BaseResultMap">
+        select dd.* from dict_data dd,dict_type dt
+        where dd.type_id = dt.id and dt.type_code=#{typeCode}
+    </select>
+    <select id="getDictDataListByTypeId" resultMap="BaseResultMap">
+        select * from dict_data where type_id=#{typeId}
+    </select>
+    <delete id="deleteByTypeId">
+        delete from dict_data where type_id=#{typeId}
+    </delete>
+</mapper>

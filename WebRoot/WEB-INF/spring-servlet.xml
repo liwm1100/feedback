@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+ 
+ 	<context:property-placeholder location="classpath*:*.properties" />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/plain;charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json; charset=UTF-8</value>
+						<value>application/x-www-form-urlencoded; charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<mvc:default-servlet-handler />
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000"/>
+    </bean>
+    <context:component-scan base-package="com.my.feedback.*">
+        <context:include-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+   
+   <mvc:resources location="/WEB-INF/static/" mapping="/static/**"/>
+
+	<!-- 视图解析器:定义跳转的文件的前后缀 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />  <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑  -->
+	</bean>
+	<mvc:interceptors>
+	   <mvc:interceptor>
+		  <mvc:mapping path="/**"/>
+		  <mvc:exclude-mapping path="/static/**"/>
+		  <bean class="com.my.feedback.interceptor.TokenInterceptor"/>
+	   </mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/admin/toLogin"/>
+			<mvc:exclude-mapping path="/admin/login"/>
+			<mvc:exclude-mapping path="/admin/logout"/>
+			<bean class="com.my.feedback.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+</beans>

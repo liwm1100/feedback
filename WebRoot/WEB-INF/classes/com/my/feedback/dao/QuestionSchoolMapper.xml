@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.feedback.dao.QuestionSchoolMapper">
+    <resultMap id="BaseResultMap" type="com.my.feedback.model.QuestionSchool">
+        <!--
+        @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="question_no" jdbcType="VARCHAR" property="questionNo" />
+        <result column="school_no" jdbcType="VARCHAR" property="schoolNo" />
+        <result column="school_state" jdbcType="INTEGER" property="schoolState" />
+        <result column="school_note" jdbcType="VARCHAR" property="schoolNote" />
+        <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+        @mbggenerated
+        -->
+        id, question_no, school_no, school_state, school_note, audit_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+        @mbggenerated
+        -->
+        select 
+        <include refid="Base_Column_List" />
+        from question_school
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--
+        @mbggenerated
+        -->
+        delete from question_school
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.my.feedback.model.QuestionSchool">
+        <!--
+        @mbggenerated
+        -->
+        insert into question_school (id, question_no, school_no, 
+            school_state, school_note, audit_time
+            )
+        values (#{id,jdbcType=INTEGER}, #{questionNo,jdbcType=VARCHAR}, #{schoolNo,jdbcType=VARCHAR}, 
+            #{schoolState,jdbcType=INTEGER}, #{schoolNote,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP}
+            )
+    </insert>
+    <insert id="insertSelective" parameterType="com.my.feedback.model.QuestionSchool">
+        <!--
+        @mbggenerated
+        -->
+        insert into question_school
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="questionNo != null">
+                question_no,
+            </if>
+            <if test="schoolNo != null">
+                school_no,
+            </if>
+            <if test="schoolState != null">
+                school_state,
+            </if>
+            <if test="schoolNote != null">
+                school_note,
+            </if>
+            <if test="auditTime != null">
+                audit_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="questionNo != null">
+                #{questionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNo != null">
+                #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolState != null">
+                #{schoolState,jdbcType=INTEGER},
+            </if>
+            <if test="schoolNote != null">
+                #{schoolNote,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.my.feedback.model.QuestionSchool">
+        <!--
+        @mbggenerated
+        -->
+        update question_school
+        <set>
+            <if test="questionNo != null">
+                question_no = #{questionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNo != null">
+                school_no = #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolState != null">
+                school_state = #{schoolState,jdbcType=INTEGER},
+            </if>
+            <if test="schoolNote != null">
+                school_note = #{schoolNote,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                audit_time = #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.my.feedback.model.QuestionSchool">
+        <!--
+        @mbggenerated
+        -->
+        update question_school
+        set question_no = #{questionNo,jdbcType=VARCHAR},
+            school_no = #{schoolNo,jdbcType=VARCHAR},
+            school_state = #{schoolState,jdbcType=INTEGER},
+            school_note = #{schoolNote,jdbcType=VARCHAR},
+            audit_time = #{auditTime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -1,0 +1,41 @@
+.tooltip {  
+	display: block;
+	font-style:normal;
+	font-size: 12px;
+	max-width: 280px;
+	background-color: #ffd3d3;
+	border: 1px solid rgb(255, 0, 0);
+	color:red;
+	padding: 3px 6px;
+	z-index: 202;
+	position:absolute;
+	/*top: 37px !important;*/
+	right: 0 !important; 
+}  
+.tooltip i{ display: block; width:10px; height: 6px; position: absolute; top:-6px; margin: 0 auto; left:0; right: 0;}
+.tooltip i:before{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 6px solid rgb(255, 0, 0);
+}
+.tooltip i:after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 1px;
+    left: 1px;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-bottom: 5px solid #ffd3d3;
+}
+
+input.error{background-color:#FBE2E2}
+select.error{background-color:#FBE2E2}
+

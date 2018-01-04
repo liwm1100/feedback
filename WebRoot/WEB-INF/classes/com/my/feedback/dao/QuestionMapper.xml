@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.feedback.dao.QuestionMapper">
+    <resultMap id="BaseResultMap" type="com.my.feedback.model.Question">
+        <!--
+        @mbggenerated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="question_no" jdbcType="VARCHAR" property="questionNo" />
+        <result column="school_no" jdbcType="VARCHAR" property="schoolNo" />
+        <result column="class_no" jdbcType="VARCHAR" property="classNo" />
+        <result column="question" jdbcType="VARCHAR" property="question" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="report_type" jdbcType="INTEGER" property="reportType" />
+        <result column="fault_type" jdbcType="INTEGER" property="faultType" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+        <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+        <result column="school_note" jdbcType="VARCHAR" property="schoolNote" />
+        <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+        <result column="state" jdbcType="INTEGER" property="state" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+        @mbggenerated
+        -->
+        id, question_no, school_no, class_no, question, create_time, report_type, fault_type,
+        note, pic_url, user_name, user_phone, school_note, audit_time, state
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--
+        @mbggenerated
+        -->
+        select
+        <include refid="Base_Column_List" />
+        from question
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--
+        @mbggenerated
+        -->
+        delete from question
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.my.feedback.model.Question">
+        <!--
+        @mbggenerated
+        -->
+        insert into question (id, question_no, school_no,
+        class_no, question, create_time,
+        report_type, fault_type, note,
+        pic_url, user_name, user_phone,
+        school_note, audit_time, state
+        )
+        values (#{id,jdbcType=INTEGER}, #{questionNo,jdbcType=VARCHAR}, #{schoolNo,jdbcType=VARCHAR},
+        #{classNo,jdbcType=VARCHAR}, #{question,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{reportType,jdbcType=INTEGER}, #{faultType,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR},
+        #{picUrl,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR},
+        #{schoolNote,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.my.feedback.model.Question">
+        <!--
+        @mbggenerated
+        -->
+        insert into question
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="questionNo != null">
+                question_no,
+            </if>
+            <if test="schoolNo != null">
+                school_no,
+            </if>
+            <if test="classNo != null">
+                class_no,
+            </if>
+            <if test="question != null">
+                question,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="reportType != null">
+                report_type,
+            </if>
+            <if test="faultType != null">
+                fault_type,
+            </if>
+            <if test="note != null">
+                note,
+            </if>
+            <if test="picUrl != null">
+                pic_url,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userPhone != null">
+                user_phone,
+            </if>
+            <if test="schoolNote != null">
+                school_note,
+            </if>
+            <if test="auditTime != null">
+                audit_time,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="questionNo != null">
+                #{questionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNo != null">
+                #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="classNo != null">
+                #{classNo,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="reportType != null">
+                #{reportType,jdbcType=INTEGER},
+            </if>
+            <if test="faultType != null">
+                #{faultType,jdbcType=INTEGER},
+            </if>
+            <if test="note != null">
+                #{note,jdbcType=VARCHAR},
+            </if>
+            <if test="picUrl != null">
+                #{picUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNote != null">
+                #{schoolNote,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.my.feedback.model.Question">
+        <!--
+        @mbggenerated
+        -->
+        update question
+        <set>
+            <if test="questionNo != null">
+                question_no = #{questionNo,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNo != null">
+                school_no = #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="classNo != null">
+                class_no = #{classNo,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                question = #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="reportType != null">
+                report_type = #{reportType,jdbcType=INTEGER},
+            </if>
+            <if test="faultType != null">
+                fault_type = #{faultType,jdbcType=INTEGER},
+            </if>
+            <if test="note != null">
+                note = #{note,jdbcType=VARCHAR},
+            </if>
+            <if test="picUrl != null">
+                pic_url = #{picUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNote != null">
+                school_note = #{schoolNote,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                audit_time = #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyNo" parameterType="com.my.feedback.model.Question">
+        update question
+        <set>
+            <if test="schoolNo != null">
+                school_no = #{schoolNo,jdbcType=VARCHAR},
+            </if>
+            <if test="classNo != null">
+                class_no = #{classNo,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                question = #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="reportType != null">
+                report_type = #{reportType,jdbcType=INTEGER},
+            </if>
+            <if test="faultType != null">
+                fault_type = #{faultType,jdbcType=INTEGER},
+            </if>
+            <if test="note != null">
+                note = #{note,jdbcType=VARCHAR},
+            </if>
+            <if test="picUrl != null">
+                pic_url = #{picUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userPhone != null">
+                user_phone = #{userPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="schoolNote != null">
+                school_note = #{schoolNote,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                audit_time = #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=INTEGER},
+            </if>
+        </set>
+        where question_no = #{questionNo,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.my.feedback.model.Question">
+        <!--
+        @mbggenerated
+        -->
+        update question
+        set question_no = #{questionNo,jdbcType=VARCHAR},
+        school_no = #{schoolNo,jdbcType=VARCHAR},
+        class_no = #{classNo,jdbcType=VARCHAR},
+        question = #{question,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        report_type = #{reportType,jdbcType=INTEGER},
+        fault_type = #{faultType,jdbcType=INTEGER},
+        note = #{note,jdbcType=VARCHAR},
+        pic_url = #{picUrl,jdbcType=VARCHAR},
+        user_name = #{userName,jdbcType=VARCHAR},
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+        school_note = #{schoolNote,jdbcType=VARCHAR},
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+        state = #{state,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <resultMap id="QuestionVo" type="com.my.feedback.model.vo.QuestionVo" extends="BaseResultMap">
+        <result column="school_name" property="schoolName" jdbcType="VARCHAR"/>
+        <result column="class_name" property="className" jdbcType="VARCHAR"/>
+
+        <result column="question_where" jdbcType="VARCHAR" property="questionWhere" />
+        <result column="repair_result" jdbcType="VARCHAR" property="repairResult" />
+        <result column="repair_change" jdbcType="VARCHAR" property="repairChange" />
+        <result column="repair_pic_url" jdbcType="VARCHAR" property="repairPicUrl" />
+        <result column="repair_date" jdbcType="TIMESTAMP" property="repairDate" />
+        <result column="repair_price" jdbcType="DECIMAL" property="repairPrice" />
+        <result column="book_date" jdbcType="TIMESTAMP" property="bookDate" />
+        <result column="book_user" jdbcType="VARCHAR" property="bookUser" />
+        <result column="admin_state" jdbcType="VARCHAR" property="adminState" />
+    </resultMap>
+    <select id="listByVo" parameterType="com.my.feedback.model.vo.QuestionVo"
+                                resultMap="QuestionVo">
+        select q.*,s.school_name from question q
+        LEFT JOIN school s on q.school_no=s.school_no
+        LEFT JOIN question_result qr on q.question_no=qr.question_no
+        <where>
+            <if test="schoolNo != null">
+                and q.school_no = #{schoolNo}
+            </if>
+            <if test="schoolName != null">
+                and s.school_name like CONCAT(CONCAT('%', #{schoolName}), '%')
+            </if>
+            <if test="questionNo != null">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="state != null">
+                and q.state = #{state}
+            </if>
+            <if test="adminState != null">
+                and qr.admin_state  like CONCAT(CONCAT('%', #{adminState}), '%')
+            </if>
+            <if test="reportType != null">
+                and q.report_type = #{reportType}
+            </if>
+            <if test="dateStart != null">
+                and q.create_time >= #{dateStart}
+            </if>
+            <if test="dateEnd != null">
+                <![CDATA[ and q.create_time <= #{dateStart}  ]]>
+            </if>
+        </where>
+        <if test="sort==null or sort=='desc'">
+            order by q.create_time desc
+        </if>
+        <if test="sort!=null and sort=='asc'">
+            order by q.create_time asc
+        </if>
+    </select>
+    <select id="getQuestionByNo" resultMap="BaseResultMap">
+        select * from question where question_no = #{questionNo}
+    </select>
+    <select id="questionList" parameterType="com.my.feedback.model.vo.QuestionVo"
+            resultMap="QuestionVo">
+        select
+           q.*,s.school_name,qr.*,cl.class_name
+        from question q
+        LEFT JOIN school s on q.school_no=s.school_no
+        LEFT JOIN classes cl on cl.class_no=q.class_no
+        LEFT JOIN question_result qr on q.question_no=qr.question_no
+        <where>
+            <if test="schoolNo != null">
+                and q.school_no = #{schoolNo}
+            </if>
+            <if test="schoolName != null">
+                and s.school_name like CONCAT(CONCAT('%', #{schoolName}), '%')
+            </if>
+            <if test="questionNo != null">
+                and q.question_no = #{questionNo}
+            </if>
+            <if test="state != null">
+                and q.state = #{state}
+            </if>
+            <if test="adminState != null">
+                and qr.admin_state  like CONCAT(CONCAT('%', #{adminState}), '%')
+            </if>
+            <if test="reportType != null">
+                and q.report_type = #{reportType}
+            </if>
+            <if test="dateStart != null">
+                and q.create_time >= #{dateStart}
+            </if>
+            <if test="dateEnd != null">
+                <![CDATA[ and q.create_time <= #{dateStart}  ]]>
+            </if>
+        </where>
+    </select>
+</mapper>
